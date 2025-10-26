@@ -1,0 +1,117 @@
+{
+  "dataset_info": {
+    "total_students": 10000,
+    "features": 12,
+    "placement_rate": 41.97,
+    "not_placed_rate": 58.03
+  },
+  "top_features": [
+    {
+      "name": "Backlogs",
+      "importance": 10488.73,
+      "impact": "Negative - Higher backlogs reduce placement chances"
+    },
+    {
+      "name": "Skills",
+      "importance": 2903.95,
+      "impact": "Positive - More skills increase placement probability"
+    },
+    {
+      "name": "10th Percentage",
+      "importance": 2671.99,
+      "impact": "Positive - Strong foundation indicator"
+    },
+    {
+      "name": "Internship",
+      "importance": 2400.02,
+      "impact": "Positive - 70% improvement in placement chances"
+    },
+    {
+      "name": "Workshops/Certifications",
+      "importance": 2387.02,
+      "impact": "Positive - 45% improvement with certifications"
+    },
+    {
+      "name": "12th Percentage",
+      "importance": 2226.52,
+      "impact": "Positive - Academic performance indicator"
+    },
+    {
+      "name": "Communication Skills",
+      "importance": 1758.32,
+      "impact": "Positive - Critical for interviews"
+    },
+    {
+      "name": "CGPA",
+      "importance": 1746.97,
+      "impact": "Positive - 65% higher rate with CGPA > 7.5"
+    }
+  ],
+  "model_performance": {
+    "best_model": "Random Forest",
+    "accuracy": 93.4,
+    "precision": 92.4,
+    "recall": 91.8,
+    "f1_score": 92.1,
+    "auc_roc": 98.3
+  },
+  "student_clusters": [
+    {
+      "id": 0,
+      "name": "High Performers",
+      "size": 2500,
+      "placement_rate": 85,
+      "characteristics": "High CGPA (>8.0), Multiple skills (8+), Internship experience, Low backlogs",
+      "recommendations": "Focus on advanced skills, leadership roles, competitive programming"
+    },
+    {
+      "id": 1,
+      "name": "Moderate Performers",
+      "size": 4000,
+      "placement_rate": 55,
+      "characteristics": "Average CGPA (7.0-8.0), Some projects, Mixed internship status",
+      "recommendations": "Improve technical skills, gain internship experience, work on communication"
+    },
+    {
+      "id": 2,
+      "name": "At-Risk Students",
+      "size": 2500,
+      "placement_rate": 15,
+      "characteristics": "Low CGPA (<7.0), Few skills, No internship, High backlogs",
+      "recommendations": "Clear backlogs, basic skill development, career counseling, intensive support"
+    },
+    {
+      "id": 3,
+      "name": "Skill Specialists",
+      "size": 1000,
+      "placement_rate": 70,
+      "characteristics": "Moderate CGPA, High technical skills, Project experience",
+      "recommendations": "Leverage technical expertise, improve academics, portfolio development"
+    }
+  ],
+  "key_insights": [
+    "Students with CGPA > 7.5 show 65% higher placement rates",
+    "6+ technical skills provide 2.5x better placement chances",
+    "Internships increase placement probability by 70%",
+    "Backlogs have the strongest negative correlation with placement",
+    "Workshops and certifications correlate with 45% improvement"
+  ],
+  "recommendations": {
+    "for_students": [
+      "Maintain CGPA above 7.5 for optimal placement chances",
+      "Develop 6+ technical skills through courses and practice",
+      "Complete at least one internship before final year",
+      "Minimize backlogs and clear them as soon as possible",
+      "Participate in workshops and obtain relevant certifications",
+      "Improve communication skills through practice and training"
+    ],
+    "for_institutions": [
+      "Identify at-risk students early using predictive models",
+      "Provide targeted skill development programs",
+      "Facilitate internship opportunities and industry connections",
+      "Implement mandatory communication skills training",
+      "Create support systems for students with academic difficulties",
+      "Use data-driven approaches for placement optimization"
+    ]
+  }
+}

@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlacementAI - Next-Gen Prediction System</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="bg-canvas"></div>
+    <div class="floating-shapes">
+        <div class="shape shape1"></div>
+        <div class="shape shape2"></div>
+        <div class="shape shape3"></div>
+    </div>
+
+  <nav class="navbar">
+    <div class="nav-brand">
+        <div class="nav-logo">
+            <svg viewBox="0 0 100 115" xmlns="http://www.w3.org/2000/svg">
+                <path d="M50 2.5 L95 28.75 L95 81.25 L50 107.5 L5 81.25 L5 28.75 Z" 
+                      fill="none" stroke="url(#gradient1)" stroke-width="3"/>
+                <path d="M50 15 L80 32.5 L80 77.5 L50 95 L20 77.5 L20 32.5 Z" 
+                      fill="none" stroke="url(#gradient2)" stroke-width="2.5"/>
+                <defs>
+                    <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+                    </linearGradient>
+                    <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#f093fb;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#f5576c;stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+            </svg>
+        </div>
+        <h2>PlacementAI</h2>
+    </div>
+    <ul class="nav-menu">
+        <li><a class="nav-link active" data-section="dashboard">Dashboard</a></li>
+        <li><a class="nav-link" data-section="predict">Predict</a></li>
+        <li><a class="nav-link" data-section="analytics">Analytics</a></li>
+        <li><a class="nav-link" data-section="clusters">Clusters</a></li>
+        <li><a class="nav-link" data-section="insights">Insights</a></li>
+    </ul>
+</nav>
+
+    <div class="content">
+        <!-- Dashboard Section -->
+        <section id="dashboard" class="section active">
+            <div class="hero">
+                <h1>AI-Powered Student Placement Prediction</h1>
+                <p>Leverage advanced machine learning to predict placement outcomes and optimize career development strategies</p>
+            </div>
+
+            <div class="stats-grid">
+                <div class="glass-card stat-card">
+                    <div class="stat-icon">👥</div>
+                    <div class="stat-number">10,000</div>
+                    <div class="stat-label">Total Students</div>
+                </div>
+                <div class="glass-card stat-card">
+                    <div class="stat-icon">📊</div>
+                    <div class="stat-number">41.97%</div>
+                    <div class="stat-label">Overall Placement Rate</div>
+                </div>
+                <div class="glass-card stat-card">
+                    <div class="stat-icon">🎯</div>
+                    <div class="stat-number">93.4%</div>
+                    <div class="stat-label">Model Accuracy</div>
+                </div>
+            </div>
+
+            <div class="features-grid">
+                <div class="glass-card feature-card">
+                    <h3>Placement Prediction</h3>
+                    <p>Get real-time placement probability based on academic and extracurricular performance</p>
+                    <button class="btn btn-primary" data-navigate="predict">Start Prediction</button>
+                </div>
+                <div class="glass-card feature-card">
+                    <h3>Analytics Dashboard</h3>
+                    <p>Explore model performance and feature importance through interactive visualizations</p>
+                    <button class="btn btn-primary" data-navigate="analytics">View Analytics</button>
+                </div>
+                <div class="glass-card feature-card">
+                    <h3>Student Clusters</h3>
+                    <p>Discover student groupings and characteristics for targeted guidance</p>
+                    <button class="btn btn-primary" data-navigate="clusters">Explore Clusters</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Predict Section -->
+        <section id="predict" class="section">
+            <div class="hero">
+                <h1>Placement Prediction Tool</h1>
+                <p>Enter your academic and extracurricular details for personalized predictions</p>
+            </div>
+
+            <div class="prediction-container">
+                <div class="glass-card">
+                    <form id="predictionForm">
+                        <div class="form-group">
+                            <label class="form-label">CGPA (5-10)</label>
+                            <input type="range" id="cgpa" min="5" max="10" step="0.1" value="7.5" class="form-control slider">
+                            <div class="slider-value" id="cgpaValue">7.5</div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Communication Rating (0-10)</label>
+                            <input type="range" id="communication" min="0" max="10" step="0.5" value="5" class="form-control slider">
+                            <div class="slider-value" id="communicationValue">5</div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Major Projects (0-10)</label>
+                            <input type="range" id="majorProjects" min="0" max="10" step="1" value="2" class="form-control slider">
+                            <div class="slider-value" id="majorProjectsValue">2</div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Mini Projects (0-10)</label>
+                            <input type="range" id="miniProjects" min="0" max="10" step="1" value="3" class="form-control slider">
+                            <div class="slider-value" id="miniProjectsValue">3</div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Technical Skills (0-10)</label>
+                            <input type="range" id="skills" min="0" max="10" step="1" value="5" class="form-control slider">
+                            <div class="slider-value" id="skillsValue">5</div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Workshops/Certifications</label>
+                            <select id="workshops" class="form-control">
+                                <option value="0">0</option>
+                                <option value="1" selected>1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">12th Percentage</label>
+                            <input type="range" id="twelfth" min="55" max="90" step="1" value="72" class="form-control slider">
+                            <div class="slider-value" id="twelfthValue">72</div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">10th Percentage</label>
+                            <input type="range" id="tenth" min="57" max="88" step="1" value="72" class="form-control slider">
+                            <div class="slider-value" id="tenthValue">72</div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Backlogs</label>
+                            <select id="backlogs" class="form-control">
+                                <option value="0" selected>0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Hackathon Participation</label>
+                            <div class="toggle-group">
+                                <label class="toggle">
+                                    <input type="checkbox" id="hackathon">
+                                    <span class="toggle-slider"></span>
+                                </label>
+                                <span class="toggle-label">Yes</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Internship Experience</label>
+                            <div class="toggle-group">
+                                <label class="toggle">
+                                    <input type="checkbox" id="internship">
+                                    <span class="toggle-slider"></span>
+                                </label>
+                                <span class="toggle-label">Yes</span>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 20px;">Predict Placement</button>
+                    </form>
+                </div>
+
+                <div class="glass-card">
+                    <div class="result-card">
+                        <h3>Prediction Results</h3>
+                        <div class="score-circle">
+                            <div class="score-text" id="scoreText">--</div>
+                        </div>
+                        <span class="risk-badge" id="riskBadge">Enter details</span>
+                    </div>
+                    <div class="recommendations">
+                        <h4>Personalized Recommendations</h4>
+                        <ul class="recommendation-list" id="recommendationList">
+                            <li>Complete the form to get personalized recommendations</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Analytics Section -->
+        <section id="analytics" class="section">
+            <div class="hero">
+                <h1>Analytics Dashboard</h1>
+                <p>Explore model performance and feature importance</p>
+            </div>
+
+            <div class="analytics-grid">
+                <div class="glass-card chart-container">
+                    <h3>Feature Importance</h3>
+                    <canvas id="featureChart"></canvas>
+                </div>
+                <div class="glass-card chart-container">
+                    <h3>Model Performance</h3>
+                    <canvas id="performanceChart"></canvas>
+                </div>
+            </div>
+
+            <div class="analytics-images">
+                <div class="glass-card image-card">
+                    <h3>CGPA vs Placement Analysis</h3>
+                    <img src="https://ppl-ai-code-interpreter-files.s3.amazonaws.com/web/direct-files/998e33c2da4b4b2da28f4babb130a7f9/0a7af4d7-479d-438c-b4c8-d90f3e63495c/e509de06.png" alt="CGPA Placement Analysis" class="analysis-image">
+                </div>
+                <div class="glass-card image-card">
+                    <h3>Model Performance Metrics</h3>
+                    <img src="https://ppl-ai-code-interpreter-files.s3.amazonaws.com/web/direct-files/998e33c2da4b4b2da28f4babb130a7f9/41153e34-5b96-447f-99a1-676df995a5da/ac19a464.png" alt="Model Performance" class="analysis-image">
+                </div>
+            </div>
+        </section>
+
+        <!-- Clusters Section -->
+        <section id="clusters" class="section">
+            <div class="hero">
+                <h1>Student Clusters</h1>
+                <p>Discover student groupings and characteristics for targeted guidance</p>
+            </div>
+
+            <div class="clusters-grid">
+                <div class="glass-card high-performers">
+                    <div class="cluster-header">
+                        <h3>High Performers</h3>
+                        <div class="cluster-stats">
+                            <span class="cluster-size">2,500 students</span>
+                            <span class="cluster-rate">85% placement</span>
+                        </div>
+                    </div>
+                    <div class="cluster-characteristics">
+                        <h4>Characteristics:</h4>
+                        <p>High CGPA (>8.0), Multiple skills (8+), Internship experience, Low backlogs</p>
+                    </div>
+                    <div class="cluster-recommendations">
+                        <h4>Recommendations:</h4>
+                        <p>Focus on advanced skills, leadership roles, competitive programming</p>
+                    </div>
+                </div>
+
+                <div class="glass-card moderate-performers">
+                    <div class="cluster-header">
+                        <h3>Moderate Performers</h3>
+                        <div class="cluster-stats">
+                            <span class="cluster-size">4,000 students</span>
+                            <span class="cluster-rate">55% placement</span>
+                        </div>
+                    </div>
+                    <div class="cluster-characteristics">
+                        <h4>Characteristics:</h4>
+                        <p>Average CGPA (7.0-8.0), Some projects, Mixed internship status</p>
+                    </div>
+                    <div class="cluster-recommendations">
+                        <h4>Recommendations:</h4>
+                        <p>Improve technical skills, gain internship experience, work on communication</p>
+                    </div>
+                </div>
+
+                <div class="glass-card at-risk">
+                    <div class="cluster-header">
+                        <h3>At-Risk Students</h3>
+                        <div class="cluster-stats">
+                            <span class="cluster-size">2,500 students</span>
+                            <span class="cluster-rate">15% placement</span>
+                        </div>
+                    </div>
+                    <div class="cluster-characteristics">
+                        <h4>Characteristics:</h4>
+                        <p>Low CGPA (<7.0), Few skills, No internship, High backlogs</p>
+                    </div>
+                    <div class="cluster-recommendations">
+                        <h4>Recommendations:</h4>
+                        <p>Clear backlogs, basic skill development, career counseling, intensive support</p>
+                    </div>
+                </div>
+
+                <div class="glass-card skill-specialists">
+                    <div class="cluster-header">
+                        <h3>Skill Specialists</h3>
+                        <div class="cluster-stats">
+                            <span class="cluster-size">1,000 students</span>
+                            <span class="cluster-rate">70% placement</span>
+                        </div>
+                    </div>
+                    <div class="cluster-characteristics">
+                        <h4>Characteristics:</h4>
+                        <p>Moderate CGPA, High technical skills, Project experience</p>
+                    </div>
+                    <div class="cluster-recommendations">
+                        <h4>Recommendations:</h4>
+                        <p>Leverage technical expertise, improve academics, portfolio development</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Insights Section -->
+        <section id="insights" class="section">
+            <div class="hero">
+                <h1>Key Insights & Recommendations</h1>
+                <p>Data-driven career guidance and success factors analysis</p>
+            </div>
+
+            <div class="insights-content">
+                <div class="insights-grid">
+                    <div class="glass-card insight-card">
+                        <h3>Key Research Findings</h3>
+                        <ul class="insight-list">
+                            <li>Students with CGPA > 7.5 show 65% higher placement rates</li>
+                            <li>6+ technical skills provide 2.5x better placement chances</li>
+                            <li>Internships increase placement probability by 70%</li>
+                            <li>Backlogs have the strongest negative correlation with placement</li>
+                            <li>Workshops and certifications correlate with 45% improvement</li>
+                        </ul>
+                    </div>
+
+                    <div class="glass-card insight-card">
+                        <h3>For Students</h3>
+                        <ul class="recommendation-list">
+                            <li>Maintain CGPA above 7.5 for optimal placement chances</li>
+                            <li>Develop 6+ technical skills through courses and practice</li>
+                            <li>Complete at least one internship before final year</li>
+                            <li>Minimize backlogs and clear them as soon as possible</li>
+                            <li>Participate in workshops and obtain relevant certifications</li>
+                            <li>Improve communication skills through practice and training</li>
+                        </ul>
+                    </div>
+
+                    <div class="glass-card insight-card">
+                        <h3>For Institutions</h3>
+                        <ul class="recommendation-list">
+                            <li>Identify at-risk students early using predictive models</li>
+                            <li>Provide targeted skill development programs</li>
+                            <li>Facilitate internship opportunities and industry connections</li>
+                            <li>Implement mandatory communication skills training</li>
+                            <li>Create support systems for students with academic difficulties</li>
+                            <li>Use data-driven approaches for placement optimization</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="glass-card success-factors">
+                    <h3 style="text-align: center; margin-bottom: 40px;">Success Factors Analysis</h3>
+                    <div class="factors-grid">
+                        <div class="factor-item">
+                            <div class="factor-icon">🎓</div>
+                            <h4>Academic Excellence</h4>
+                            <p>Strong academic foundation with CGPA > 7.5 significantly improves placement outcomes</p>
+                        </div>
+                        <div class="factor-item">
+                            <div class="factor-icon">💻</div>
+                            <h4>Technical Skills</h4>
+                            <p>Multiple technical skills (6+) and practical project experience are crucial</p>
+                        </div>
+                        <div class="factor-item">
+                            <div class="factor-icon">🏢</div>
+                            <h4>Industry Experience</h4>
+                            <p>Internships and industry exposure provide 70% better placement chances</p>
+                        </div>
+                        <div class="factor-item">
+                            <div class="factor-icon">🗣️</div>
+                            <h4>Communication</h4>
+                            <p>Strong communication skills are critical for interview success and career growth</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
